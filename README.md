@@ -1,8 +1,12 @@
 # Triad Hub
 
+> **Public source preview / 公开源码预览版。** This is not a stable, turnkey release. Do not treat a successful local demonstration as proof that a fresh installation or unattended production run will work.
+
+**中文说明：** 这里公开的是三方协同的实现与可复现的离线测试，不是“一键安装即用”的正式产品。本机已验证 Codex、Hermes、WorkBuddy 的有界接力，以及三方读取同一经审核的项目记忆检查点；这不等于三个产品共享完整聊天记录。全新环境中 Hermes、WorkBuddy 的首次绑定流程，以及 WorkBuddy 在完整任务里的安全改文件验收，仍待完成。请勿直接用于无人值守生产任务，也不要上传自己的凭据、会话或业务数据。
+
 Triad Hub is a local-first collaboration controller for Codex, Hermes, and WorkBuddy/CodeBuddy. A single human message can start a bounded handoff; the Hub records task state, evidence references, per-agent consumption cursors, and the final review instead of treating bot replies as proof of completion.
 
-This repository is being prepared for a public beta. It is **not** an autonomous multi-agent swarm or a hosted service. The three model accounts, their private chat histories, and their credentials stay separate. The Hub supplies reviewed shared context; it does not copy private memories between products.
+This repository is a public source preview, not a tagged beta release. It is **not** an autonomous multi-agent swarm or a hosted service. The three model accounts, their private chat histories, and their credentials stay separate. The Hub supplies reviewed shared context; it does not copy private memories between products.
 
 ## What is distinctive
 
