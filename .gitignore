@@ -1,0 +1,42 @@
+.venv/
+.env
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.log
+*.jsonl
+*.pem
+*.key
+*.p12
+*.pfx
+__pycache__/
+*.pyc
+triad.db-wal
+triad.db-shm
+# Step 1 冻结基线备份（含迁移前旧代码与旧库，仅本机保留，不入仓库）
+backups/
+# 结构化日志与桥日志
+logs/
+bridge_logs/
+feishu_events.jsonl
+.pytest_cache/
+.pytest_tmp/
+# Private operational state is never a release payload.
+.env.*
+!.env.example
+archive/
+evidence/
+_sr2_qualify/
+.gate4_iso/
+reports/
+runtime/
+shared_project_memory/
+# Local tool/session caches are never release material.
+.workbuddy/
+_cli_acceptance/
+_pytest_tmp*/
+tmp_evidence_diag/

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Triad · 三方协作看板</title><link rel="stylesheet" href="/style.css"></head>
+<body><main><header><div><p class="eyebrow">TRIAD / CONTROL ROOM</p><h1>三方协作，一处看清。</h1><p class="muted">本机只读看板 · 不调用模型 · 不展示凭据、私有记忆或原始日志</p></div><span class="pill" id="connection">连接中</span></header>
+<section class="selector"><label for="run">运行批次</label><select id="run"></select><button id="refresh">刷新</button><span id="updated" class="muted"></span></section>
+<div class="banner" id="notice">正在读取本地证据…</div>
+<section class="stats"><article><small>可信活跃角色</small><strong id="online">—</strong><p>PID 身份与本轮新鲜心跳交叉核验</p></article><article><small>本批次任务记录</small><strong id="task-count">—</strong><p>区分执行完成与返回验收</p></article><article><small>共享事件 / 已验证摘要</small><strong id="memory-count">—</strong><p>任务上下文来源，不是共享全部私人聊天</p></article></section>
+<section><h2>角色状态 <span>离线记录不会伪装成当前在线</span></h2><div class="roles" id="roles"></div></section>
+<section class="grid"><article class="panel"><h2>任务与当前负责人</h2><div id="tasks"></div></article><article class="panel"><h2>最近调用 <span>含复制库初始历史 · 不显示正文</span></h2><div id="calls"></div></article></section>
+<section class="panel"><h2>有边界的协作闭环</h2><div class="flow"><b>Codex · 定义任务</b><i>→</i><b>Hermes · 执行</b><i>→</i><b>WB · 检查</b><i>→</i><b>Codex · 最终验收</b></div><p class="muted">只有控制器创建的任务才走闭环。普通机器人回复不会再触发调用。验收不通过或调用结果未知时，不自动循环重试。</p></section>
+<section class="grid"><article class="panel"><h2>记忆怎么衔接？</h2><p>交接携带任务目标、负责人、验收标准、证据引用、同任务事件和已验证摘要。各角色消费游标独立；超出上下文预算会阻塞，不悄悄丢弃。</p><div id="cursors" class="muted"></div></article><article class="panel"><h2>Codex 没额度时</h2><p>在测试群单独 <b>@Triad WB Bot</b> 或 <b>@Hermes 对应机器人</b> 并写明任务即可直接调用对应后端。不要 @所有人，避免同时调用三家。</p><p class="muted">接续任务请附任务 ID、下一步及允许范围；直接 @ 不等于自动转交原任务所有权。各后端仍需在线且有额度；本看板不推测余额，也不会替代 Codex 的最终验收。</p></article></section>
+<p class="muted">会话说明：Triad Codex 是已绑定的专用工作会话，不等于正在阅读本看板的 Codex 桌面聊天。结果留存在本批次共享账本中；没有回执时，不能假定桌面聊天已收到。</p>
+<footer>仅 127.0.0.1 可访问 · 每 5 秒读取状态 · 页面刷新不消耗模型额度 · 时间标记为 UTC 的记录按原始证据显示</footer>
+</main><script src="/app.js"></script></body></html>

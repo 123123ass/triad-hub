@@ -1,0 +1,30 @@
+# Triad Hub 共享摘要候选格式（Hermes 专用，Step 6）
+#
+# 铁律（Hermes 必须遵守）：
+# - 不修改 WB / Codex 私有记忆。
+# - 不把推测写成事实；每条事实必须引用 event_seq。
+# - 不省略阻塞、失败和分歧。
+# - 不包含密码、token 或 Authorization。
+# - 只提交 candidate，不能自封 verified。
+# - source_digest 由 Hub 根据输入事件生成并放入任务；Hermes 必须原样返回，不得改写。
+#
+# Hub 调用 verify_summary_candidate 时会重新读取原始事件并计算 digest，
+# 与候选中的 source_digest 比对；不一致直接拒绝(digest_mismatch)。
+#
+# 期望返回的结构化候选示例：
+#
+# {
+#   "summary_id": "sum-2026-08-07-001",
+#   "from_event_seq": 1,
+#   "to_event_seq": 20,
+#   "summary_text": "WB 完成了 Step 5 飞书入口与 Agent 解耦……",
+#   "facts": [
+#     {
+#       "fact_id": "fact-1",
+#       "text": "Step 5 入站不再创建 outbox、不再直调 Agent。",
+#       "evidence_event_seqs": [3, 8]
+#     }
+#   ],
+#   "proposed_by": "hermes",
+#   "source_digest": "<由 Hub 提供，原样返回>"
+# }
